@@ -28,7 +28,7 @@ import havaianoImg from '../assets/products_img/havaiano.png'
 import arabeImg from '../assets/products_img/arabe.png'
 import irlandesImg from '../assets/products_img/irlandes.png'
 
-interface ICoffeeData {
+export interface ICoffeeData {
   name: string
   description: string
   options: string[]
