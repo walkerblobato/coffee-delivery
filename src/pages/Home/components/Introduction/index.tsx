@@ -17,14 +17,11 @@ export function Introduction() {
     <IntroContainer>
       <TitlesContainer>
         <IntroTitles>
-          <h2>
-            Encontre o café perfeito<br></br>
-            para qualquer hora do dia
-          </h2>
-          <h4>
+          <h1>Encontre o café perfeito para qualquer hora do dia</h1>
+          <p>
             Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
             hora
-          </h4>
+          </p>
         </IntroTitles>
 
         <Badges>
@@ -51,7 +48,7 @@ export function Introduction() {
         src={CoffeeImg}
         alt="Coffee Delivery app Logo"
         title="Coffee Delivery app"
-      ></img>
+      />
     </IntroContainer>
   )
 }
