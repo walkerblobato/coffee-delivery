@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const CoffeeListStyles = styled.section`
   h2 {
-    font-family: 'Baloo 2';
+    font-family: 'Baloo 2', cursive;
     max-width: 25.6rem;
     font-size: 3.2rem;
     margin: 5rem 0;
@@ -34,7 +34,7 @@ export const CoffeeCard = styled.div`
   padding: 2.4rem;
 
   h3 {
-    font-family: 'Baloo 2';
+    font-family: 'Baloo 2', cursive;
     font-size: 2rem;
     color: ${(props) => props.theme.base['base-subtitle']};
     margin: 0.8rem 0;
@@ -138,8 +138,9 @@ export const BuyActions = styled.div`
     font-family: 'Roboto';
     font-size: 1.4rem;
     color: ${(props) => props.theme.base['base-text']};
+
     span {
-      font-family: 'baloo 2';
+      font-family: 'Baloo 2', cursive;
       font-size: 2.4rem;
       font-weight: 800;
     }
