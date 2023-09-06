@@ -31,7 +31,7 @@ export const TitlesContainer = styled.div`
 `
 export const IntroTitles = styled.div`
   gap: 1.6rem;
-  margin-bottom: 6.6rem;
+  margin-bottom: 4rem;
   max-width: 58rem;
 
   h1 {

@@ -2,17 +2,24 @@ import styled from 'styled-components'
 
 export const LayoutContainer = styled.div`
   padding: 0 12rem;
+  margin: auto;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   display: flex;
+  max-width: 144rem;
   background: ${(props) => props.theme.base.background};
 
-  @media (max-width: 1050px) {
+  @media (max-width: 1350px) {
+    padding: 0 8rem;
+  }
+
+  @media (max-width: 1150px) {
     padding: 0 6rem;
   }
 
   @media (max-width: 499px) {
-    padding: 0 3rem;
+    padding: 0 4rem;
   }
 
   @media (max-width: 399px) {

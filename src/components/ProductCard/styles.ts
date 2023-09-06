@@ -30,16 +30,16 @@ export const CoffeeCard = styled.div`
     margin-top: -4rem;
   }
 
-  @media (max-width: 849px) {
-    min-width: calc(45vw - 2.4rem);
-    min-height: 50vh;
-    padding: 1.2rem;
+  @media (max-width: 1280px) {
+    max-width: 25vw;
   }
 
-  @media (max-width: 593px) {
-    min-width: calc(85vw - 2.4rem);
-    margin: 0 auto;
-    padding: 1.2rem;
+  @media (max-width: 950px) {
+    max-width: 38vw;
+  }
+
+  @media (max-width: 630px) {
+    min-width: 85vw;
   }
 `
 export const CoffeeInfo = styled.div`

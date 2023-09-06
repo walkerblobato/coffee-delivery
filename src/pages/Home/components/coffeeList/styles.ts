@@ -5,32 +5,21 @@ export const CoffeeListStyles = styled.section`
     font-family: 'Baloo 2';
     max-width: 25.6rem;
     font-size: 3.2rem;
-    margin: rem 0;
+    margin: 5rem 0;
   }
 
   @media (max-width: 740px) {
     h2 {
-      margin: 3.2rem 8rem;
-    }
-  }
-
-  @media (max-width: 48px) {
-    h2 {
-      margin: 3.2rem 4rem;
+      margin: 3.2rem auto;
     }
   }
 `
 export const CoffeeListContainer = styled.section`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-wrap: wrap;
   gap: 3.2rem;
-
-  @media (max-width: 740px) {
-    justify-content: space-around;
-  }
 `
 export const CoffeeCard = styled.div`
   background: ${(props) => props.theme.base['base-card']};
