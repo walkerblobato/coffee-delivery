@@ -1,5 +1,5 @@
-import { Introduction } from './components/Introduction'
-import { CoffeeList } from './components/coffeeList'
+import { Introduction } from './Components/Introduction'
+import { CoffeeList } from './Components/CoffeeList'
 
 export const Home = () => {
   return (

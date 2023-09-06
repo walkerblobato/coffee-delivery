@@ -11,6 +11,7 @@ export const HeaderContainer = styled.header`
   img {
     width: 8.5rem;
     height: 4rem;
+    cursor: pointer;
   }
 `
 
@@ -46,6 +47,7 @@ export const CartButton = styled.button`
   gap: 0.4rem;
   font-size: 1.4rem;
   border: none;
+  cursor: pointer;
   background: ${(props) => props.theme.product['yellow-light']};
   color: ${(props) => props.theme.product['yellow-dark']};
   border-radius: 0.6rem;
