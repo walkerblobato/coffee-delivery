@@ -20,6 +20,7 @@ export const CoffeeListContainer = styled.section`
   align-items: center;
   flex-wrap: wrap;
   gap: 3.2rem;
+  margin-bottom: 10rem;
 `
 export const CoffeeCard = styled.div`
   background: ${(props) => props.theme.base['base-card']};

@@ -24,3 +24,52 @@ export const Subtitle = styled.h2`
   font-weight: 700;
   line-height: 130%;
 `
+
+export const OrderComponentsContainer = styled.div`
+  padding: 4rem;
+  background-color: ${(props) => props.theme.base['base-card']};
+  border-radius: 0.6rem;
+  width: 64rem;
+
+  @media (max-width: 696px) {
+    width: 95vw;
+  }
+
+  @media (max-width: 570px) {
+    padding: 2rem;
+  }
+`
+
+interface IOrderComponentsHeaderProps {
+  colorSvg: string
+}
+
+export const OrderComponentsHeader = styled.div<IOrderComponentsHeaderProps>`
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 3.2rem;
+
+  svg {
+    color: ${(props) => props.colorSvg};
+  }
+`
+
+export const OrderComponentsTitle = styled.div`
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: 1.6rem;
+    color: ${(props) => props.theme.base['base-subtitle']};
+    font-weight: 400;
+    line-height: 130%;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme.base['base-text']};
+    font-weight: 400;
+    line-height: 130%;
+  }
+`

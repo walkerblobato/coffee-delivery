@@ -15,36 +15,6 @@ export const DeliveryAddressContainer = styled.div`
   }
 `
 
-export const DeliveryHeader = styled.div`
-  display: flex;
-  gap: 0.8rem;
-  margin-bottom: 3.2rem;
-
-  svg {
-    color: ${(props) => props.theme.product['yellow-dark']};
-  }
-`
-
-export const DeliveryTitle = styled.div`
-  font-family: 'Roboto', sans-serif;
-  display: flex;
-  flex-direction: column;
-
-  h3 {
-    font-size: 1.6rem;
-    color: ${(props) => props.theme.base['base-subtitle']};
-    font-weight: 400;
-    line-height: 130%;
-  }
-
-  p {
-    font-size: 1.4rem;
-    color: ${(props) => props.theme.base['base-text']};
-    font-weight: 400;
-    line-height: 130%;
-  }
-`
-
 export const AddressInputContainer = styled.div`
   display: flex;
   justify-content: start;

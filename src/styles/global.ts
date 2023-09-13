@@ -14,11 +14,11 @@ export const GlobalStyled = createGlobalStyle`
   body {
     background: ${(props) => props.theme.base.background};
     -webkit-font-smoothing: antialiased;
+    font-size: 1.6rem;
   }
 
   body, input, textarea, button {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 1.6rem;
   }
 `

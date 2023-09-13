@@ -13,6 +13,7 @@ import {
 
 export function Introduction() {
   const theme = useTheme()
+
   return (
     <IntroContainer>
       <TitlesContainer>

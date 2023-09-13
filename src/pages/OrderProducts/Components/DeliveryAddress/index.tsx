@@ -1,24 +1,27 @@
 import { MapPinLine } from 'phosphor-react'
+import { useTheme } from 'styled-components'
+
+import { AddressInput, AddressInputContainer, InputSection } from './styles'
+
 import {
-  AddressInput,
-  AddressInputContainer,
-  DeliveryAddressContainer,
-  DeliveryHeader,
-  DeliveryTitle,
-  InputSection,
-} from './styles'
+  OrderComponentsContainer,
+  OrderComponentsHeader,
+  OrderComponentsTitle,
+} from '../../styles'
 
 export const DeliveryAddress = () => {
+  const theme = useTheme()
+
   return (
-    <DeliveryAddressContainer>
-      <DeliveryHeader>
+    <OrderComponentsContainer>
+      <OrderComponentsHeader colorSvg={theme.product['yellow-dark']}>
         <MapPinLine size={22} />
 
-        <DeliveryTitle>
+        <OrderComponentsTitle>
           <h3>Endereço de Entrega</h3>
           <p>Informe o endereço onde deseja receber seu pedido</p>
-        </DeliveryTitle>
-      </DeliveryHeader>
+        </OrderComponentsTitle>
+      </OrderComponentsHeader>
 
       <AddressInputContainer>
         <AddressInput placeholder="CEP" width="38%" />
@@ -38,6 +41,6 @@ export const DeliveryAddress = () => {
           </div>
         </InputSection>
       </AddressInputContainer>
-    </DeliveryAddressContainer>
+    </OrderComponentsContainer>
   )
 }
