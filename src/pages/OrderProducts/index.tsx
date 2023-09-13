@@ -9,15 +9,14 @@ export const OrderProducts = () => {
     <OrderContainer>
       <OderUserData>
         <Subtitle>Complete seu pedido</Subtitle>
-
         <DeliveryAddress />
         <PaymentMethods />
       </OderUserData>
 
-      <div>
+      <OderUserData>
         <Subtitle>Cafés selecionados</Subtitle>
         <ProductsCart />
-      </div>
+      </OderUserData>
     </OrderContainer>
   )
 }

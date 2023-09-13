@@ -26,6 +26,7 @@ export const UserLocation = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.4rem;
   padding: 0.8rem;
   font-size: 1.4rem;
   background: ${(props) => props.theme.product['purple-light']};

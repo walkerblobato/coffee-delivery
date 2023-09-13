@@ -7,7 +7,7 @@ export const OrderContainer = styled.div`
   padding: 1rem;
 
   @media (max-width: 1050px) {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 `
 

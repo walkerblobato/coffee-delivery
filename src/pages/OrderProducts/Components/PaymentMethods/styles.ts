@@ -26,7 +26,8 @@ export const PaymentButton = styled.button`
   cursor: pointer;
 
   svg {
-    color: ${(props) => props.theme.product['purple-dark']};
+    color: ${(props) => props.theme.product.purple};
+    cursor: pointer;
   }
 
   @media (max-width: 660px) {
