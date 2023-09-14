@@ -34,6 +34,7 @@ export interface ICoffeeData {
   options: string[]
   iconSrc: string
   imgSrc: string
+  price: number
 }
 
 const coffeeDataList: ICoffeeData[] = [
@@ -43,6 +44,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Tradicional'],
     iconSrc: expresso,
     imgSrc: expressoImg,
+    price: 6.9,
   },
   {
     name: 'Expresso Americano',
@@ -50,6 +52,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Tradicional'],
     iconSrc: americano,
     imgSrc: americanoImg,
+    price: 8.9,
   },
   {
     name: 'Expresso Cremoso',
@@ -57,6 +60,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Tradicional'],
     iconSrc: cremoso,
     imgSrc: cremosoImg,
+    price: 11.9,
   },
   {
     name: 'Expresso Gelado',
@@ -64,6 +68,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Tradicional', 'Gelado'],
     iconSrc: gelado,
     imgSrc: geladoImg,
+    price: 13.9,
   },
   {
     name: 'Café com Leite',
@@ -71,6 +76,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Tradicional', 'Com Leite'],
     iconSrc: comLeite,
     imgSrc: comLeiteImg,
+    price: 7.9,
   },
   {
     name: 'Latte',
@@ -79,6 +85,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Tradicional', 'Com Leite'],
     iconSrc: latte,
     imgSrc: latteImg,
+    price: 12.9,
   },
   {
     name: 'Capuccino',
@@ -87,6 +94,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Tradicional', 'Com Leite'],
     iconSrc: capuccino,
     imgSrc: capuccinoImg,
+    price: 15.9,
   },
   {
     name: 'Macchiato',
@@ -95,6 +103,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Tradicional', 'Com Leite'],
     iconSrc: macchiato,
     imgSrc: macchiatoImg,
+    price: 10.9,
   },
   {
     name: 'Mocaccino',
@@ -102,6 +111,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Tradicional', 'Com Leite'],
     iconSrc: mocaccino,
     imgSrc: mocaccinoImg,
+    price: 9.9,
   },
   {
     name: 'Chocolate quente',
@@ -109,6 +119,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Especial', 'Com Leite'],
     iconSrc: chocolate,
     imgSrc: chocolateImg,
+    price: 14.9,
   },
   {
     name: 'Cubano',
@@ -117,6 +128,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Especial', 'Alcoólico', 'Gelado'],
     iconSrc: cubano,
     imgSrc: cubanoImg,
+    price: 13.9,
   },
   {
     name: 'Havaiano',
@@ -124,6 +136,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Especial'],
     iconSrc: havaiano,
     imgSrc: havaianoImg,
+    price: 16.9,
   },
   {
     name: 'Árabe',
@@ -131,6 +144,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Especial'],
     iconSrc: arabe,
     imgSrc: arabeImg,
+    price: 12.9,
   },
   {
     name: 'Irlandês',
@@ -138,6 +152,7 @@ const coffeeDataList: ICoffeeData[] = [
     options: ['Especial', 'Alcoólico'],
     iconSrc: irlandes,
     imgSrc: irlandesImg,
+    price: 19.9,
   },
 ]
 

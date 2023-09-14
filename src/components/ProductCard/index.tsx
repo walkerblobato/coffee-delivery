@@ -17,12 +17,15 @@ export interface IProductCardProps {
     options: string[]
     iconSrc: string
     imgSrc?: string
+    price: number
   }
 }
 
 export const ProductCard = (props: IProductCardProps) => {
   const theme = useTheme()
-  const { iconSrc, name, options, description } = props.data
+  const { iconSrc, name, options, description, price } = props.data
+
+  const formatPrice = price.toFixed(2).toString().replace('.', ',')
 
   return (
     <CoffeeCard>
@@ -41,7 +44,7 @@ export const ProductCard = (props: IProductCardProps) => {
 
       <BuyActions>
         <h6 title="Preço atual">
-          R$ <span>9,90</span>
+          R$ <span>{formatPrice}</span>
         </h6>
 
         <BuyQuantity>
