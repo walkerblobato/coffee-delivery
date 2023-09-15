@@ -9,8 +9,8 @@ export function CoffeeList() {
       <h2>Nossos cafés</h2>
 
       <CoffeeListContainer>
-        {CoffeeDataList.map((coffee, index) => (
-          <ProductCard data={coffee} key={index} />
+        {CoffeeDataList.map((coffee) => (
+          <ProductCard data={coffee} key={coffee.id} />
         ))}
       </CoffeeListContainer>
     </CoffeeListStyles>

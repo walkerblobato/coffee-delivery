@@ -1,6 +1,6 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
 
-import coffeeExpresso from '../../../../../../assets/products_icon/expresso.png'
+import { IProductsDataCart } from '../../../../../../@types/interfaces'
 
 import {
   CartItemContainer,
@@ -13,20 +13,21 @@ import {
   Divider,
 } from './styles'
 
-export const CartItem = () => {
+export const CartItem = (props: IProductsDataCart) => {
+  const { name, iconSrc, price, qnty } = props
   return (
     <>
       <CartItemContainer>
         <ItemContainer>
-          <img src={coffeeExpresso} alt="Café Expresso" />
+          <img src={iconSrc} alt="Café Expresso" />
           <div>
-            <p>Expresso Tradicional</p>
+            <p>{name}</p>
             <ItemOptions>
               <ItemQuantity>
                 <QuantityButton>
                   <Minus size={14} />
                 </QuantityButton>
-                <span>1</span>
+                <span>{qnty}</span>
                 <QuantityButton>
                   <Plus size={14} />
                 </QuantityButton>
@@ -39,7 +40,7 @@ export const CartItem = () => {
           </div>
         </ItemContainer>
 
-        <Price>R$ 9,90</Price>
+        <Price>R$ {price}</Price>
       </CartItemContainer>
 
       <Divider></Divider>

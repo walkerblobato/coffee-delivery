@@ -1,5 +1,8 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
-import { useTheme } from 'styled-components'
+import { useContext, useState } from 'react'
+
+import { ShoppingContext } from '../../context/ShoppingContext'
+import { formatPrice } from '../../utils/formatPrice'
 
 import {
   CoffeeCard,
@@ -8,10 +11,12 @@ import {
   BuyActions,
   BuyQuantity,
   BuyButton,
+  QuantityButton,
 } from './styles'
 
 export interface IProductCardProps {
   data: {
+    id: number
     name: string
     description: string
     options: string[]
@@ -22,10 +27,38 @@ export interface IProductCardProps {
 }
 
 export const ProductCard = (props: IProductCardProps) => {
-  const theme = useTheme()
-  const { iconSrc, name, options, description, price } = props.data
+  const [qntyProductCard, setqntyProductCard] = useState(1)
 
-  const formatPrice = price.toFixed(2).toString().replace('.', ',')
+  const { id, iconSrc, name, options, description, price } = props.data
+  const { setProductsToCart, moreQntyProduct, lessQntyProduct } =
+    useContext(ShoppingContext)
+
+  const getDataProduct = () => {
+    const products = {
+      id,
+      iconSrc,
+      name,
+      options,
+      price,
+      qnty: qntyProductCard,
+    }
+
+    setProductsToCart(products)
+  }
+
+  const lessProducts = () => {
+    const newQnty = lessQntyProduct(qntyProductCard)
+
+    setqntyProductCard(newQnty)
+  }
+
+  const moreProducts = () => {
+    const newQnty = moreQntyProduct(qntyProductCard)
+
+    setqntyProductCard(newQnty)
+  }
+
+  const priceFormat = formatPrice(price)
 
   return (
     <CoffeeCard>
@@ -33,8 +66,8 @@ export const ProductCard = (props: IProductCardProps) => {
 
       <CoffeeInfo>
         <OptionsStyle>
-          {options.map((option, index) => (
-            <button key={index}>{option}</button>
+          {options.map((option) => (
+            <button key={option}>{option}</button>
           ))}
         </OptionsStyle>
 
@@ -43,24 +76,22 @@ export const ProductCard = (props: IProductCardProps) => {
       </CoffeeInfo>
 
       <BuyActions>
-        <h6 title="Preço atual">
-          R$ <span>{formatPrice}</span>
-        </h6>
+        <p title="Preço atual">
+          R$ <span>{priceFormat}</span>
+        </p>
 
         <BuyQuantity>
-          <button title="Remover">
+          <QuantityButton title="Remover" onClick={lessProducts}>
             <Minus size={14} />
-          </button>
-          <span title="Unidades">1</span>
-          <button title="Adicionar">
+          </QuantityButton>
+          <span title="Unidades">{qntyProductCard}</span>
+          <QuantityButton title="Adicionar" onClick={moreProducts}>
             <Plus size={14} />
-          </button>
+          </QuantityButton>
         </BuyQuantity>
 
-        <BuyButton title="Comprar" background={theme.product['purple-dark']}>
-          <button>
-            <ShoppingCart size={22} weight="fill" />
-          </button>
+        <BuyButton title="Comprar" onClick={getDataProduct}>
+          <ShoppingCart size={22} weight="fill" />
         </BuyButton>
       </BuyActions>
     </CoffeeCard>

@@ -41,7 +41,7 @@ export const OrderComponentsContainer = styled.div`
 `
 
 interface IOrderComponentsHeaderProps {
-  colorSvg: string
+  $colorsvg: string
 }
 
 export const OrderComponentsHeader = styled.div<IOrderComponentsHeaderProps>`
@@ -50,7 +50,7 @@ export const OrderComponentsHeader = styled.div<IOrderComponentsHeaderProps>`
   margin-bottom: 3.2rem;
 
   svg {
-    color: ${(props) => props.colorSvg};
+    color: ${(props) => props.$colorsvg};
   }
 `
 

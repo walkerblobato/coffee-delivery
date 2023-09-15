@@ -1,6 +1,8 @@
 export interface IProductsDataCart {
-  image: string
+  id: number
+  iconSrc: string
   name: string
   options: string[]
   price: number
+  qnty: number
 }

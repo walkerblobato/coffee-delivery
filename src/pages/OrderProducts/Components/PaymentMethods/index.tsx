@@ -15,7 +15,7 @@ export const PaymentMethods = () => {
 
   return (
     <OrderComponentsContainer>
-      <OrderComponentsHeader colorSvg={theme.product.purple}>
+      <OrderComponentsHeader $colorsvg={theme.product.purple}>
         <CurrencyDollar size={22} />
 
         <OrderComponentsTitle>

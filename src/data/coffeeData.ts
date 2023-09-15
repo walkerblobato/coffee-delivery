@@ -29,6 +29,7 @@ import arabeImg from '../assets/products_img/arabe.png'
 import irlandesImg from '../assets/products_img/irlandes.png'
 
 export interface ICoffeeData {
+  id: number
   name: string
   description: string
   options: string[]
@@ -39,6 +40,7 @@ export interface ICoffeeData {
 
 const coffeeDataList: ICoffeeData[] = [
   {
+    id: 1,
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
     options: ['Tradicional'],
@@ -47,6 +49,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 6.9,
   },
   {
+    id: 2,
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
     options: ['Tradicional'],
@@ -55,6 +58,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 8.9,
   },
   {
+    id: 3,
     name: 'Expresso Cremoso',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     options: ['Tradicional'],
@@ -63,6 +67,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 11.9,
   },
   {
+    id: 4,
     name: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
     options: ['Tradicional', 'Gelado'],
@@ -71,6 +76,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 13.9,
   },
   {
+    id: 5,
     name: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     options: ['Tradicional', 'Com Leite'],
@@ -79,6 +85,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 7.9,
   },
   {
+    id: 6,
     name: 'Latte',
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
@@ -88,6 +95,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 12.9,
   },
   {
+    id: 7,
     name: 'Capuccino',
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
@@ -97,6 +105,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 15.9,
   },
   {
+    id: 8,
     name: 'Macchiato',
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
@@ -106,6 +115,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 10.9,
   },
   {
+    id: 9,
     name: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     options: ['Tradicional', 'Com Leite'],
@@ -114,6 +124,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 9.9,
   },
   {
+    id: 10,
     name: 'Chocolate quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     options: ['Especial', 'Com Leite'],
@@ -122,6 +133,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 14.9,
   },
   {
+    id: 11,
     name: 'Cubano',
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
@@ -131,6 +143,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 13.9,
   },
   {
+    id: 12,
     name: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
     options: ['Especial'],
@@ -139,6 +152,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 16.9,
   },
   {
+    id: 13,
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     options: ['Especial'],
@@ -147,6 +161,7 @@ const coffeeDataList: ICoffeeData[] = [
     price: 12.9,
   },
   {
+    id: 14,
     name: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantili',
     options: ['Especial', 'Alcoólico'],

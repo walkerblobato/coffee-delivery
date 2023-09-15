@@ -83,29 +83,21 @@ export const BuyQuantity = styled.div`
     font-size: 1.6rem;
   }
 
-  button {
-    border: none;
-    transition: all ease-in-out 600ms;
-    border-radius: 50%;
-    padding: 0.2rem;
-    display: flex;
-    background: ${(props) => props.theme.base['base-button']};
-  }
-
-  button:hover {
-    transition: all ease-in-out 600ms;
-    background: ${(props) => props.theme.base['base-label']};
-    border: 0.2rem solid ${(props) => props.theme.base.white};
-    svg {
-      filter: invert();
-    }
-  }
-
   @media (max-width: 591px) {
     max-width: 10.2rem;
     flex-grow: 1;
   }
 `
+export const QuantityButton = styled.button`
+  border: none;
+  transition: all ease-in-out 600ms;
+  border-radius: 50%;
+  padding: 0.2rem;
+  display: flex;
+  cursor: pointer;
+  background: ${(props) => props.theme.base['base-button']};
+`
+
 export const BuyActions = styled.div`
   display: flex;
   flex-direction: row;
@@ -113,7 +105,7 @@ export const BuyActions = styled.div`
   align-items: center;
   width: 100%;
 
-  h6 {
+  p {
     font-family: 'Roboto';
     font-size: 1.4rem;
     color: ${(props) => props.theme.base['base-text']};
@@ -123,31 +115,25 @@ export const BuyActions = styled.div`
       font-weight: 800;
     }
   }
-
-  button:hover {
-    transition: all ease-in-out 600ms;
-    background: ${(props) => props.theme.base['base-label']};
-    svg {
-      filter: invert();
-    }
-  }
 `
 
-interface IconButton {
-  background: string
-}
+export const BuyButton = styled.button`
+  background: ${(props) => props.theme.product['purple-dark']};
+  border-radius: 6px;
+  padding: 0.8rem;
+  border: none;
+  width: 3.8rem;
+  height: 3.8rem;
+  cursor: pointer;
 
-export const BuyButton = styled.div<IconButton>`
-  button {
-    background: ${(props) => props.background};
-    border-radius: 6px;
-    padding: 0.8rem;
+  svg {
+    color: ${(props) => props.theme.base.white};
+    margin: auto;
+  }
+
+  &:hover {
+    transition: all ease-in-out 600ms;
+    background: ${(props) => props.theme.product.purple};
     border: none;
-    width: 3.8rem;
-    height: 3.8rem;
-    svg {
-      color: ${(props) => props.theme.base.white};
-      margin: auto;
-    }
   }
 `

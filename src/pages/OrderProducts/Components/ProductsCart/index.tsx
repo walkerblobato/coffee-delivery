@@ -1,20 +1,33 @@
-import { CartItem } from './components/CartItem'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+
+import { CartItem } from './components/CartItem'
+
 import {
   ProductsCartContainer,
   OrderDetail,
   TotalOrder,
   ConfirmButton,
 } from './styles'
+import { ShoppingContext } from '../../../../context/ShoppingContext'
 
 export const ProductsCart = () => {
+  const { productsCart } = useContext(ShoppingContext)
   const navigate = useNavigate()
 
   return (
     <ProductsCartContainer>
-      <CartItem />
-      <CartItem />
-      <CartItem />
+      {productsCart.map((product) => (
+        <CartItem
+          key={product.id}
+          id={product.id}
+          name={product.name}
+          price={product.price}
+          options={product.options}
+          iconSrc={product.iconSrc}
+          qnty={product.qnty}
+        />
+      ))}
 
       <OrderDetail>
         <p>Total de itens</p>

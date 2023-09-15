@@ -96,7 +96,7 @@ export const Badges = styled.div`
 `
 
 interface IconBadgeProps {
-  background: string
+  $background: string
 }
 
 export const IconBadge = styled.div<IconBadgeProps>`
@@ -108,7 +108,7 @@ export const IconBadge = styled.div<IconBadgeProps>`
 
   svg {
     border-radius: 50%;
-    background: ${(props) => props.background};
+    background: ${(props) => props.$background};
     color: ${(props) => props.theme.base.white};
     padding: 0.8rem 0.8rem;
     width: 3.2rem;

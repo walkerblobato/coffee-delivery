@@ -26,19 +26,19 @@ export function Introduction() {
         </IntroTitles>
 
         <Badges>
-          <IconBadge background={theme.product['yellow-dark']}>
+          <IconBadge $background={theme.product['yellow-dark']}>
             <ShoppingCart size={16} weight="fill" />
             <span>Compra simples e segura</span>
           </IconBadge>
-          <IconBadge background={theme.base['base-text']}>
+          <IconBadge $background={theme.base['base-text']}>
             <Package size={16} weight="fill" />
             <span>Embalagem mantém o café intacto</span>
           </IconBadge>
-          <IconBadge background={theme.product.yellow}>
+          <IconBadge $background={theme.product.yellow}>
             <Timer size={16} weight="fill" />
             <span>Entrega rápida e rastreada</span>
           </IconBadge>
-          <IconBadge background={theme.product.purple}>
+          <IconBadge $background={theme.product.purple}>
             <Coffee size={16} weight="fill" />
             <span>O café chega fresquinho até você</span>
           </IconBadge>
