@@ -5,4 +5,5 @@ export interface IProductsDataCart {
   options: string[]
   price: number
   qnty: number
+  cartQnty: number
 }

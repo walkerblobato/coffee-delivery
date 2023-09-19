@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 import { CartItem } from './components/CartItem'
 
@@ -8,43 +8,66 @@ import {
   OrderDetail,
   TotalOrder,
   ConfirmButton,
+  EmptyCart,
 } from './styles'
 import { ShoppingContext } from '../../../../context/ShoppingContext'
+import { formatPrice } from '../../../../utils/formatPrice'
 
 export const ProductsCart = () => {
-  const { productsCart } = useContext(ShoppingContext)
+  const { productsCart, totalItems, calculateTotalItems } =
+    useContext(ShoppingContext)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (calculateTotalItems) {
+      calculateTotalItems()
+    }
+  }, [calculateTotalItems, productsCart])
+
+  const formatTotalItems = formatPrice(totalItems)
+  const deliveryTax = totalItems * 0.15 + 2.7
+  const formatDeliveryTax = formatPrice(deliveryTax)
+  const totalPrice = formatPrice(totalItems + deliveryTax)
+  const isEmpty = productsCart.length === 0
 
   return (
     <ProductsCartContainer>
-      {productsCart.map((product) => (
-        <CartItem
-          key={product.id}
-          id={product.id}
-          name={product.name}
-          price={product.price}
-          options={product.options}
-          iconSrc={product.iconSrc}
-          qnty={product.qnty}
-        />
-      ))}
+      {isEmpty ? (
+        <EmptyCart>Seu carrinho está vazio</EmptyCart>
+      ) : (
+        <>
+          {productsCart.map((product) => (
+            <CartItem
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              price={product.price}
+              iconSrc={product.iconSrc}
+              cartQnty={product.cartQnty}
+            />
+          ))}
 
-      <OrderDetail>
-        <p>Total de itens</p>
-        <span>R$ 29,70</span>
-      </OrderDetail>
+          <OrderDetail>
+            <p>Total de itens</p>
+            <span>R$ {formatTotalItems}</span>
+          </OrderDetail>
 
-      <OrderDetail>
-        <p>Entrega</p>
-        <span>R$ 3,70</span>
-      </OrderDetail>
+          <OrderDetail>
+            <p>Entrega</p>
+            <span>R$ {formatDeliveryTax}</span>
+          </OrderDetail>
 
-      <TotalOrder>
-        <h4>TotalEntrega</h4>
-        <p>R$ 33,40</p>
-      </TotalOrder>
+          <TotalOrder>
+            <h4>Total</h4>
+            <p>R$ {totalPrice}</p>
+          </TotalOrder>
+        </>
+      )}
 
-      <ConfirmButton onClick={() => navigate('/order-success')}>
+      <ConfirmButton
+        onClick={() => navigate('/order-success')}
+        disabled={isEmpty}
+      >
         Confirmar Pedido
       </ConfirmButton>
     </ProductsCartContainer>

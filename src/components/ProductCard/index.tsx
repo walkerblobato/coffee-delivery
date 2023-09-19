@@ -27,35 +27,37 @@ export interface IProductCardProps {
 }
 
 export const ProductCard = (props: IProductCardProps) => {
-  const [qntyProductCard, setqntyProductCard] = useState(1)
+  const [qntyProductCard, setQntyProductCard] = useState(1)
 
   const { id, iconSrc, name, options, description, price } = props.data
-  const { setProductsToCart, moreQntyProduct, lessQntyProduct } =
-    useContext(ShoppingContext)
+  const { setProductsToCart, updateQuantity } = useContext(ShoppingContext)
+
+  const products = {
+    id,
+    iconSrc,
+    name,
+    options,
+    price,
+    qnty: qntyProductCard,
+    cartQnty: qntyProductCard,
+  }
 
   const getDataProduct = () => {
-    const products = {
-      id,
-      iconSrc,
-      name,
-      options,
-      price,
-      qnty: qntyProductCard,
-    }
-
     setProductsToCart(products)
   }
 
   const lessProducts = () => {
-    const newQnty = lessQntyProduct(qntyProductCard)
+    const newQnty = qntyProductCard - 1
 
-    setqntyProductCard(newQnty)
+    setQntyProductCard(newQnty)
+    updateQuantity(id, newQnty)
   }
 
   const moreProducts = () => {
-    const newQnty = moreQntyProduct(qntyProductCard)
+    const newQnty = qntyProductCard + 1
 
-    setqntyProductCard(newQnty)
+    setQntyProductCard(newQnty)
+    updateQuantity(id, newQnty)
   }
 
   const priceFormat = formatPrice(price)

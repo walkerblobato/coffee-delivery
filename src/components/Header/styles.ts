@@ -41,6 +41,7 @@ export const UserLocation = styled.div`
 `
 
 export const CartButton = styled.button`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,4 +59,21 @@ export const CartButton = styled.button`
     background: ${(props) => props.theme.product.yellow};
     color: ${(props) => props.theme.product['yellow-light']};
   }
+`
+
+export const CartAmount = styled.span`
+  position: absolute;
+  right: -0.8rem;
+  top: -0.8rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  padding: 1.1rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: ${(props) => props.theme.base.white};
+  background-color: ${(props) => props.theme.product['yellow-dark']};
 `

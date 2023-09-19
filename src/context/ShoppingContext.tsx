@@ -3,9 +3,11 @@ import { IProductsDataCart } from '../@types/interfaces'
 
 interface IShoppingContextType {
   productsCart: IProductsDataCart[]
+  totalItems: number
   setProductsToCart: (product: IProductsDataCart) => void
-  moreQntyProduct: (qntyProduct: number) => number
-  lessQntyProduct: (qntyProduct: number) => number
+  removeProductCart: (id: number) => void
+  calculateTotalItems: () => void
+  updateQuantity: (id: number, cartQnty: number) => void
 }
 
 export const ShoppingContext = createContext({} as IShoppingContextType)
@@ -18,6 +20,7 @@ export const ShoppingContextProvider = ({
   children,
 }: IShoppingContextProviderProps) => {
   const [productsCart, setProductsCart] = useState<IProductsDataCart[]>([])
+  const [totalItems, setTotalItems] = useState(0)
 
   const setProductsToCart = (product: IProductsDataCart) => {
     const productIndex = productsCart.findIndex(
@@ -33,27 +36,40 @@ export const ShoppingContextProvider = ({
     setProductsCart((prevState) => [...prevState, product])
   }
 
-  const moreQntyProduct = (qntyProduct: number) => {
-    const newQnty = qntyProduct + 1
+  const removeProductCart = (id: number) => {
+    const productsCartWithoutProductToDelete = productsCart.filter(
+      (productCart) => productCart.id !== id,
+    )
 
-    return newQnty
+    setProductsCart(productsCartWithoutProductToDelete)
   }
 
-  const lessQntyProduct = (qntyProduct: number) => {
-    if (qntyProduct === 1) return qntyProduct
+  const calculateTotalItems = () => {
+    const totalValue = productsCart.reduce(
+      (accumulator, product) => accumulator + product.price * product.cartQnty,
+      0,
+    )
 
-    const newQnty = qntyProduct - 1
+    setTotalItems(totalValue)
+  }
 
-    return newQnty
+  const updateQuantity = (id: number, qntyProductCard: number) => {
+    const updatedCart = productsCart.map((item) =>
+      item.id === id ? { ...item, cartQnty: qntyProductCard } : item,
+    )
+
+    setProductsCart(updatedCart)
   }
 
   return (
     <ShoppingContext.Provider
       value={{
         productsCart,
+        totalItems,
         setProductsToCart,
-        moreQntyProduct,
-        lessQntyProduct,
+        removeProductCart,
+        calculateTotalItems,
+        updateQuantity,
       }}
     >
       {children}

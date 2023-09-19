@@ -6,11 +6,18 @@ import {
   UserActions,
   UserLocation,
   CartButton,
+  CartAmount,
 } from './styles'
 import logo from '../../assets/logo.svg'
+import { useContext } from 'react'
+import { ShoppingContext } from '../../context/ShoppingContext'
 
 export const Header = () => {
   const navigate = useNavigate()
+
+  const { productsCart } = useContext(ShoppingContext)
+
+  const cartCount = productsCart.length
 
   return (
     <HeaderContainer>
@@ -30,6 +37,7 @@ export const Header = () => {
             size={22}
             onClick={() => navigate('/order-products')}
           />
+          {cartCount > 0 && <CartAmount>{cartCount}</CartAmount>}
         </CartButton>
       </UserActions>
     </HeaderContainer>

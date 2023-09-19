@@ -31,7 +31,6 @@ export const OrderDetail = styled.div`
     font-size: 1.4rem;
   }
 `
-
 export const TotalOrder = styled.div`
   display: flex;
   justify-content: space-between;
@@ -41,6 +40,15 @@ export const TotalOrder = styled.div`
   margin-bottom: 2.4rem;
   color: ${(props) => props.theme.base['base-subtitle']};
 `
+
+export const EmptyCart = styled.h3`
+  font-size: 2rem;
+  font-weight: 700;
+  color: ${(props) => props.theme.base['base-text']};
+  text-align: center;
+  margin-bottom: 3rem;
+`
+
 export const ConfirmButton = styled.button`
   background-color: ${(props) => props.theme.product.yellow};
   color: ${(props) => props.theme.base.white};
@@ -57,8 +65,13 @@ export const ConfirmButton = styled.button`
   cursor: pointer;
   transition: ease-out 600ms;
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: ${(props) => props.theme.product['yellow-dark']};
     transition: ease-in 200ms;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 `

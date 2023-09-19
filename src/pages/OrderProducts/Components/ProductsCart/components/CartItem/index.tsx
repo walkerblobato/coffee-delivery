@@ -1,6 +1,5 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
-
-import { IProductsDataCart } from '../../../../../../@types/interfaces'
+import { useContext } from 'react'
 
 import {
   CartItemContainer,
@@ -12,9 +11,44 @@ import {
   Price,
   Divider,
 } from './styles'
+import { formatPrice } from '../../../../../../utils/formatPrice'
+import { ShoppingContext } from '../../../../../../context/ShoppingContext'
 
-export const CartItem = (props: IProductsDataCart) => {
-  const { name, iconSrc, price, qnty } = props
+export interface ICartItemProps {
+  id: number
+  iconSrc: string
+  name: string
+  price: number
+  cartQnty: number
+}
+
+export const CartItem = (props: ICartItemProps) => {
+  const { id, name, iconSrc, price, cartQnty } = props
+
+  const { removeProductCart, updateQuantity } = useContext(ShoppingContext)
+
+  const moreProduct = () => {
+    const newQnty = cartQnty + 1
+
+    updateQuantity(id, newQnty)
+  }
+
+  const lessProduct = () => {
+    if (cartQnty > 1) {
+      const newQnty = cartQnty - 1
+
+      updateQuantity(id, newQnty)
+    }
+  }
+
+  const deleteProduct = () => {
+    removeProductCart(id)
+  }
+
+  const multiplyPrice = price * cartQnty
+
+  const priceFormat = formatPrice(multiplyPrice)
+
   return (
     <>
       <CartItemContainer>
@@ -24,15 +58,15 @@ export const CartItem = (props: IProductsDataCart) => {
             <p>{name}</p>
             <ItemOptions>
               <ItemQuantity>
-                <QuantityButton>
+                <QuantityButton onClick={lessProduct}>
                   <Minus size={14} />
                 </QuantityButton>
-                <span>{qnty}</span>
-                <QuantityButton>
+                <span>{cartQnty}</span>
+                <QuantityButton onClick={moreProduct}>
                   <Plus size={14} />
                 </QuantityButton>
               </ItemQuantity>
-              <TrashButton>
+              <TrashButton onClick={deleteProduct}>
                 <Trash size={16} />
                 Remover
               </TrashButton>
@@ -40,7 +74,7 @@ export const CartItem = (props: IProductsDataCart) => {
           </div>
         </ItemContainer>
 
-        <Price>R$ {price}</Price>
+        <Price>R$ {priceFormat}</Price>
       </CartItemContainer>
 
       <Divider></Divider>

@@ -70,6 +70,7 @@ export const TrashButton = styled.button`
   gap: 0.4rem;
   border: none;
   border-radius: 0.6rem;
+  cursor: pointer;
   color: ${(props) => props.theme.base['base-text']};
   background-color: ${(props) => props.theme.base['base-button']};
 
