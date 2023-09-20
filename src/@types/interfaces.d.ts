@@ -7,3 +7,8 @@ export interface IProductsDataCart {
   qnty: number
   cartQnty: number
 }
+
+export interface PaymentButtonProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  $isSelected: boolean
+}

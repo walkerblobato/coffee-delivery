@@ -1,13 +1,16 @@
 import { createContext, ReactNode, useState } from 'react'
 import { IProductsDataCart } from '../@types/interfaces'
+import { PaymentMethodType } from '../@types/types'
 
 interface IShoppingContextType {
   productsCart: IProductsDataCart[]
   totalItems: number
+  selectedPayment: PaymentMethodType | null
   setProductsToCart: (product: IProductsDataCart) => void
   removeProductCart: (id: number) => void
   calculateTotalItems: () => void
   updateQuantity: (id: number, cartQnty: number) => void
+  setSelectedPayment: (paymentMethod: PaymentMethodType) => void
 }
 
 export const ShoppingContext = createContext({} as IShoppingContextType)
@@ -21,6 +24,8 @@ export const ShoppingContextProvider = ({
 }: IShoppingContextProviderProps) => {
   const [productsCart, setProductsCart] = useState<IProductsDataCart[]>([])
   const [totalItems, setTotalItems] = useState(0)
+  const [selectedPayment, setSelectedPayment] =
+    useState<PaymentMethodType | null>(null)
 
   const setProductsToCart = (product: IProductsDataCart) => {
     const productIndex = productsCart.findIndex(
@@ -66,10 +71,12 @@ export const ShoppingContextProvider = ({
       value={{
         productsCart,
         totalItems,
+        selectedPayment,
         setProductsToCart,
         removeProductCart,
         calculateTotalItems,
         updateQuantity,
+        setSelectedPayment,
       }}
     >
       {children}

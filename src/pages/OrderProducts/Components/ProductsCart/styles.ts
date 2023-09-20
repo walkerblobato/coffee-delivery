@@ -44,9 +44,14 @@ export const TotalOrder = styled.div`
 export const EmptyCart = styled.h3`
   font-size: 2rem;
   font-weight: 700;
-  color: ${(props) => props.theme.base['base-text']};
+  margin-top: 9rem;
+  margin-bottom: 13rem;
   text-align: center;
-  margin-bottom: 3rem;
+
+  a {
+    cursor: pointer;
+    color: ${(props) => props.theme.product['yellow-dark']};
+  }
 `
 
 export const ConfirmButton = styled.button`

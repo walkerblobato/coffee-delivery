@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 
 import { CartItem } from './components/CartItem'
 
@@ -18,11 +18,7 @@ export const ProductsCart = () => {
     useContext(ShoppingContext)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (calculateTotalItems) {
-      calculateTotalItems()
-    }
-  }, [calculateTotalItems, productsCart])
+  calculateTotalItems()
 
   const formatTotalItems = formatPrice(totalItems)
   const deliveryTax = totalItems * 0.15 + 2.7
@@ -33,7 +29,10 @@ export const ProductsCart = () => {
   return (
     <ProductsCartContainer>
       {isEmpty ? (
-        <EmptyCart>Seu carrinho está vazio</EmptyCart>
+        <EmptyCart>
+          Seu carrinho está vazio,{' '}
+          <a onClick={() => navigate('/')}> adicione um café!</a>
+        </EmptyCart>
       ) : (
         <>
           {productsCart.map((product) => (
@@ -67,6 +66,7 @@ export const ProductsCart = () => {
       <ConfirmButton
         onClick={() => navigate('/order-success')}
         disabled={isEmpty}
+        title="Corfirmar pedido"
       >
         Confirmar Pedido
       </ConfirmButton>

@@ -1,8 +1,8 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
-
+import { useContext } from 'react'
 import { useTheme } from 'styled-components'
 
-import { PaymentButton, PaymentButtonContainer } from './styles'
+import { PaymentButton } from './components/PaymentButton'
 
 import {
   OrderComponentsContainer,
@@ -10,8 +10,17 @@ import {
   OrderComponentsTitle,
 } from '../../styles'
 
+import { PaymentButtonContainer } from './styles'
+import { PaymentMethodType } from '../../../../@types/types'
+import { ShoppingContext } from '../../../../context/ShoppingContext'
+
 export const PaymentMethods = () => {
   const theme = useTheme()
+  const { setSelectedPayment, selectedPayment } = useContext(ShoppingContext)
+
+  const handlePaymentClick = (paymentMethod: PaymentMethodType) => {
+    setSelectedPayment(paymentMethod)
+  }
 
   return (
     <OrderComponentsContainer>
@@ -19,7 +28,7 @@ export const PaymentMethods = () => {
         <CurrencyDollar size={22} />
 
         <OrderComponentsTitle>
-          <h3>Pagamento</h3>
+          <h3>Formas de pagamento</h3>
           <p>
             O pagamento é feito na entrega. Escolha a forma que deseja pagar
           </p>
@@ -27,15 +36,24 @@ export const PaymentMethods = () => {
       </OrderComponentsHeader>
 
       <PaymentButtonContainer>
-        <PaymentButton>
+        <PaymentButton
+          onClick={() => handlePaymentClick('Cartão de Crédito')}
+          $isSelected={selectedPayment === 'Cartão de Crédito'}
+        >
           <CreditCard size={16} />
           Cartão de Crédito
         </PaymentButton>
-        <PaymentButton>
+        <PaymentButton
+          onClick={() => handlePaymentClick('Cartão de Débito')}
+          $isSelected={selectedPayment === 'Cartão de Débito'}
+        >
           <Bank size={16} />
           Cartão de Débito
         </PaymentButton>
-        <PaymentButton>
+        <PaymentButton
+          onClick={() => handlePaymentClick('Dinheiro')}
+          $isSelected={selectedPayment === 'Dinheiro'}
+        >
           <Money size={16} />
           Dinheiro
         </PaymentButton>

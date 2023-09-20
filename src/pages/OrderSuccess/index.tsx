@@ -11,9 +11,12 @@ import {
   SuccessIllustration,
   SuccessPage,
 } from './styles'
+import { useContext } from 'react'
+import { ShoppingContext } from '../../context/ShoppingContext'
 
 export const OrderSuccess = () => {
   const theme = useTheme()
+  const { selectedPayment } = useContext(ShoppingContext)
 
   return (
     <>
@@ -51,7 +54,7 @@ export const OrderSuccess = () => {
               </span>
               <p>
                 Pagamento na entrega <br />
-                <b>Cartão de Crédito</b>
+                <b>{selectedPayment}</b>
               </p>
             </OrderSuccessData>
           </OrderSuccessInfo>
