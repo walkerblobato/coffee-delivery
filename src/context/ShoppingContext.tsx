@@ -1,16 +1,18 @@
 import { createContext, ReactNode, useState } from 'react'
-import { IProductsDataCart } from '../@types/interfaces'
+import { IDataForm, IProductsDataCart } from '../@types/interfaces'
 import { PaymentMethodType } from '../@types/types'
 
 interface IShoppingContextType {
   productsCart: IProductsDataCart[]
   totalItems: number
   selectedPayment: PaymentMethodType | null
+  dataFormShopping: IDataForm | null
   setProductsToCart: (product: IProductsDataCart) => void
   removeProductCart: (id: number) => void
   calculateTotalItems: () => void
   updateQuantity: (id: number, cartQnty: number) => void
   setSelectedPayment: (paymentMethod: PaymentMethodType) => void
+  setDataFormShopping: (dataFormShopping: IDataForm) => void
 }
 
 export const ShoppingContext = createContext({} as IShoppingContextType)
@@ -26,6 +28,9 @@ export const ShoppingContextProvider = ({
   const [totalItems, setTotalItems] = useState(0)
   const [selectedPayment, setSelectedPayment] =
     useState<PaymentMethodType | null>(null)
+  const [dataFormShopping, setDataFormShopping] = useState<IDataForm | null>(
+    null,
+  )
 
   const setProductsToCart = (product: IProductsDataCart) => {
     const productIndex = productsCart.findIndex(
@@ -66,17 +71,21 @@ export const ShoppingContextProvider = ({
     setProductsCart(updatedCart)
   }
 
+  console.log(dataFormShopping)
+
   return (
     <ShoppingContext.Provider
       value={{
         productsCart,
         totalItems,
         selectedPayment,
+        dataFormShopping,
         setProductsToCart,
         removeProductCart,
         calculateTotalItems,
         updateQuantity,
         setSelectedPayment,
+        setDataFormShopping,
       }}
     >
       {children}

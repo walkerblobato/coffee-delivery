@@ -15,6 +15,7 @@ export const defaultTheme = {
   product: {
     purple: '#8047F8',
     yellow: '#DBAC2C',
+    error: '#C4002E',
 
     'purple-light': '#EBE5F9',
     'purple-dark': '#4B2995',

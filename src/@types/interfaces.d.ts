@@ -12,3 +12,14 @@ export interface PaymentButtonProps
   extends React.HTMLAttributes<HTMLDivElement> {
   $isSelected: boolean
 }
+
+interface IDataForm {
+  zipCode: string
+  streetName: string
+  streetNumber: string
+  complement: string
+  district: string
+  city: string
+  county: string
+  paymentMethod?: string
+}

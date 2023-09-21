@@ -63,11 +63,7 @@ export const ProductsCart = () => {
         </>
       )}
 
-      <ConfirmButton
-        onClick={() => navigate('/order-success')}
-        disabled={isEmpty}
-        title="Corfirmar pedido"
-      >
+      <ConfirmButton disabled={isEmpty} title="Corfirmar pedido" type="submit">
         Confirmar Pedido
       </ConfirmButton>
     </ProductsCartContainer>

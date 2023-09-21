@@ -58,11 +58,11 @@ export const CartItem = (props: ICartItemProps) => {
             <p>{name}</p>
             <ItemOptions>
               <ItemQuantity>
-                <QuantityButton onClick={lessProduct}>
+                <QuantityButton onClick={lessProduct} type="button">
                   <Minus size={14} />
                 </QuantityButton>
                 <span>{cartQnty}</span>
-                <QuantityButton onClick={moreProduct}>
+                <QuantityButton onClick={moreProduct} type="button">
                   <Plus size={14} />
                 </QuantityButton>
               </ItemQuantity>

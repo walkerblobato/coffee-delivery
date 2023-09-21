@@ -26,6 +26,13 @@ interface IAddressInputProps {
   width?: string
 }
 
+export const ErrorMessage = styled.span`
+  color: ${(props) => props.theme.product.error};
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+  margin-top: -0.8rem;
+`
+
 export const AddressInput = styled.input<IAddressInputProps>`
   background-color: ${(props) => props.theme.base['base-input']};
   color: ${(props) => props.theme.base['base-label']};
@@ -36,14 +43,29 @@ export const AddressInput = styled.input<IAddressInputProps>`
   width: ${(props) => props.width};
 `
 
-export const InputSection = styled.div`
-  display: flex;
-  gap: 1.2rem;
+export const OpcionalInput = styled.span`
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 130%;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: ${(props) => props.theme.base['base-label']};
 
-  div {
-    display: flex;
-    gap: 1.2rem;
+  @media (max-width: 573px) {
+    top: 7rem;
+    right: 1.5rem;
   }
+`
+interface IDisplayProps {
+  $direction?: 'row' | 'column'
+}
+
+export const InputSection = styled.div<IDisplayProps>`
+  display: flex;
+  flex-direction: ${({ $direction }) => $direction};
+  gap: 1.2rem;
+  position: relative;
 
   @media (max-width: 570px) {
     flex-direction: column;

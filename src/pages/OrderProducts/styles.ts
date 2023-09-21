@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 
 export const OrderContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 3.2rem;
-  padding: 1rem;
+  form {
+    display: flex;
+    justify-content: center;
+    gap: 3.2rem;
+    padding: 1rem;
 
-  @media (max-width: 1050px) {
-    flex-direction: column;
+    @media (max-width: 1050px) {
+      flex-direction: column;
+    }
   }
 `
 
